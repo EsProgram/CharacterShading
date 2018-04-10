@@ -15,6 +15,8 @@
         _DiffuseStep ("Diffuseのステップ値", Float) = 0.1
         _OutlineScale ("アウトライン幅", Float) = 0.003
         _OutlineColor ("アウトラインの色(テクスチャ色に乗算)", Color) = (0, 0, 0, 0)
+        _EmvironmentLightPower ("環境光の強さ", Float) = 0.05
+        _EnvironmentLightColor ("環境光の色", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
