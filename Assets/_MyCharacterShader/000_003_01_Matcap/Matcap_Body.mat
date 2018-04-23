@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: DiffuseAdjust+RimLightWithLightDir+Outline_Body
-  m_Shader: {fileID: 4800000, guid: 77f2f56f17d8f4e9c88485e1e6d1e7c4, type: 3}
+  m_Name: Matcap_Body
+  m_Shader: {fileID: 4800000, guid: d67534b386b4449ee98e2e734d171735, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -22,16 +22,11 @@ Material:
         m_Texture: {fileID: 2800000, guid: 89bd732c13b3731468c727187758e231, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Matcap:
+        m_Texture: {fileID: 2800000, guid: 4f0a40dc84282473b9d0b170da91e72f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _DiffuseMax: 1.2
-    - _DiffuseMin: 0.8
-    - _DiffuseScale: 3
-    - _OutlineScale: 0.003
-    - _RimHighlightStrength: 10
-    - _RimSharpnessWithLight: 2
-    - _RimSubtraction: 0.91
-    - _RimWidth: 0.78
-    - _RimWithLightAttendance: 6.93
-    m_Colors:
-    - _OutlineColor: {r: 0.5808823, g: 0.5808823, b: 0.5808823, a: 1}
-    - _ViewLightDir: {r: -1, g: 2, b: 0.8, a: 0}
+    - _Brightness: 1
+    - _Range: 1
+    m_Colors: []
