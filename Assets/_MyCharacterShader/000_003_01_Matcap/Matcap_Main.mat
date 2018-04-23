@@ -28,5 +28,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Brightness: 1
+    - _MatcapRange: 1
     - _Range: 1
     m_Colors: []

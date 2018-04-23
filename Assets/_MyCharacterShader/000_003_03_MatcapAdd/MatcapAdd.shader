@@ -1,7 +1,8 @@
-﻿Shader "Matcap"
+﻿Shader "MatcapAdd"
 {
     Properties
     {
+        _MainTex ("Texture", 2D) = "white" {}
         _Matcap ("Matcap Texture", 2D) = "white" {}
         _MatcapRange ("Matcapの範囲", Range(0, 1.5)) = 1
     }
@@ -29,6 +30,8 @@
                 float4 normal : TEXCOORD1;
             };
 
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
             sampler2D _Matcap;
             float _MatcapRange;
 
@@ -47,7 +50,7 @@
             {
                 float2 normalProj = normalize(i.normal.xyz) * 0.5 + 0.5;
                 fixed4 col = tex2D(_Matcap, normalProj * _MatcapRange);
-                return col;
+                return tex2D(_MainTex, i.uv) + col;
             }
             ENDCG
         }
