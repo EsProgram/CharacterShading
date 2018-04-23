@@ -27,6 +27,7 @@ Material:
     - _DiffuseMin: 0.8
     - _DiffuseScale: 2
     - _DiffuseStep: 1
+    - _EmvironmentLightPower: 0.05
     - _OutlineScale: 0.003
     - _RimHighlightStrength: 3
     - _RimSharpnessWithLight: 2
@@ -34,5 +35,6 @@ Material:
     - _RimWidth: 0.78
     - _RimWithLightAttendance: 6.93
     m_Colors:
+    - _EnvironmentLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0.83823526, g: 0.83823526, b: 0.83823526, a: 1}
     - _ViewLightDir: {r: -1, g: 2, b: 0.8, a: 0}
