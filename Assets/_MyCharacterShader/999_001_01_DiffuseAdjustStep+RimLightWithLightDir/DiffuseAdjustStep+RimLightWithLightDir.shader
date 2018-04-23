@@ -12,6 +12,8 @@
         _DiffuseMin ("Diffuseの最小値", Float) = 0
         _DiffuseMax ("Diffuseの最大値", Float) = 1
         _DiffuseStep ("Diffuseのステップ値", Float) = 0.1
+        _EmvironmentLightPower ("環境光の強さ", Float) = 0.05
+        _EnvironmentLightColor ("環境光の色", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -52,6 +54,8 @@
             float _DiffuseMin;
             float _DiffuseMax;
             float _DiffuseStep;
+            float _EmvironmentLightPower;
+            float3 _EnvironmentLightColor;
 
             v2f vert (appdata v)
             {
@@ -63,7 +67,7 @@
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            float4 frag (v2f i) : SV_Target
             {
                 // Diffuse計算
                 float diffuse = dot(normalize(i.normal), normalize(_ViewLightDir));
@@ -75,8 +79,9 @@
                 // 法線とライトの方向から光が強く当たるほど1に近くなるよう値を算出(光が当たりにくい箇所は0に近付く)
                 float lightAttendance = clamp(pow(dot(normalize(i.normal), normalize(_ViewLightDir)), _RimSharpnessWithLight) - _RimSubtraction, 0, 1);
 
-                fixed4 col = tex2D(_MainTex, i.uv);
-                return col * diffuse + lightAttendance * _RimHighlightStrength;
+                float4 col = tex2D(_MainTex, i.uv);
+                float3 ret = col.rgb * diffuse + lightAttendance * _RimHighlightStrength + _EnvironmentLightColor * _EmvironmentLightPower;
+                return float4(ret.r, ret.g, ret.b, col.a);
             }
             ENDCG
         }
